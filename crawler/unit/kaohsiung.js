@@ -14,6 +14,9 @@ module.exports = async () => {
   // const json = await downloadCSV(`https://data.kcg.gov.tw/dataset/074c805a-00e1-4fc5-b5f8-b2f4d6b64aa4/resource/a6ba725a-488c-4d40-b5a2-c2fe65d3e134/download/ksepb.csv`)
   const json = await fileCSV(path.join(__dirname, '../data/ksepb.csv'))
   // console.log('ksepb.csv json', json)
+  if (json.length === 0) {
+    throw new Error('kaohsiung json length is 0')
+  }
 
   const data = json.reduce((row, one) => {
     if (one['停留時間'] !== '') {

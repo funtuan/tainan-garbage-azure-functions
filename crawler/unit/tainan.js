@@ -13,6 +13,9 @@ module.exports = async () => {
   // const json = await downloadCSV(`https://www.tnepb.gov.tw/opendata/TrashRoutes.csv`)
   const json = await fileCSV(path.join(__dirname, '../data/TrashRoutes.csv'))
   // console.log('json', json)
+  if (json.length === 0) {
+    throw new Error('tainan json length is 0')
+  }
 
   const data = json.reduce((row, one) => {
     row.push({

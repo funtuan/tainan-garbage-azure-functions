@@ -1,7 +1,7 @@
 {
     "bindings": [
         {
-            "schedule": "0 0 17 * * *",
+            "schedule": "0 0 0 * * *",
             "name": "myTimer",
             "type": "timerTrigger",
             "direction": "in"
@@ -14,5 +14,10 @@
             "direction": "out"
         }
     ],
-    "disabled": false
+    "disabled": false,
+    "retry": {
+        "strategy": "fixedDelay",
+        "maxRetryCount": 5,
+        "delayInterval": "01:00:00"
+    }
   }

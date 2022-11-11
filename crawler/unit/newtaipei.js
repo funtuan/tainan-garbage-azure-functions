@@ -39,6 +39,9 @@ module.exports = async () => {
     if (data.length === 0)run = false
   }
   // console.log('json', json)
+  if (json.length === 0) {
+    throw new Error('newtaipei json length is 0')
+  }
 
   const data = json.reduce((row, one) => {
     row.push({

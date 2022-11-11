@@ -61,14 +61,6 @@ module.exports = {
       'text': '追垃圾車已經無法滿足我了',
       'actions': [{
         'type': 'uri',
-        'label': '想不開？來官方清運查詢',
-        'uri': 'http://clean.tnepb.gov.tw/GarbageTruckLiveFeed/',
-      }, {
-        'type': 'uri',
-        'label': 'Ptt其他大神製清運查詢',
-        'uri': 'https://clean.goodideas-studio.com/',
-      }, {
-        'type': 'uri',
         'label': `問題回報`,
         'uri': `https://forms.gle/qmnxAKPzc8aoBZH17`,
       }],
@@ -92,14 +84,6 @@ module.exports = {
       'template': {
         'type': 'buttons',
         'actions': [{
-          'type': 'uri',
-          'label': '想不開？來官方清運查詢',
-          'uri': 'http://clean.tnepb.gov.tw/GarbageTruckLiveFeed/',
-        }, {
-          'type': 'uri',
-          'label': 'Ptt其他大神製清運查詢',
-          'uri': 'https://clean.goodideas-studio.com/',
-        }, {
           'type': 'datetimepicker',
           'label': '選擇其他時間',
           'data': JSON.stringify({
