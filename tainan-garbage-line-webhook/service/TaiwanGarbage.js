@@ -1,6 +1,6 @@
 
-const axios = require('axios')
-const hash = require('object-hash')
+/* const axios = require('axios')
+const hash = require('object-hash') */
 
 class TaiwanGarbage {
   constructor({
@@ -18,13 +18,13 @@ class TaiwanGarbage {
     this.MAXTIME = MAXTIME
   }
 
-  async load() {
-    const data = ((await axios.get(this.rawlink)).data).map((item) => {
+  async load(data) {
+    /* const data = ((await axios.get(this.rawlink)).data).map((item) => {
       return {
         pid: hash(item),
         ...item,
       }
-    })
+    }) */
     this.alldata = data
     for (let day = 0; day < 7; day++) {
       this.weekdata[day] = data.filter((item) => item.garbageDay.includes(day))

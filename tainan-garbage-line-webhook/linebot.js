@@ -1,11 +1,8 @@
 
 const linebot = require('linebot')
 const moment = require('moment')
-const TaiwanGarbage = require('./service/TaiwanGarbage')
 const config = require('./config.js')
 const lineTemplate = require('./lineTemplate.js')
-const garbage = new TaiwanGarbage()
-garbage.load()
 
 setInterval(() => {
   garbage.load()
@@ -18,6 +15,7 @@ const bot = linebot({
 })
 
 bot.on('message', function(event) {
+  const garbage = event.garbage
   console.log(new Date().toString(), event.message.type)
   // console.log(event.message);
   if ( event.message.type === 'location') {
@@ -55,6 +53,7 @@ bot.on('message', function(event) {
 })
 
 bot.on('postback', function(event) {
+  const garbage = event.garbage
   const json = JSON.parse(event.postback.data)
   let datetime = new Date()
   if (event.postback.params && event.postback.params.datetime) {

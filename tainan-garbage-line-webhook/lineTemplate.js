@@ -18,7 +18,7 @@ module.exports = {
     const textArray = [
       moment(datetime).format('查詢時間：MM月DD日 HH:mm 後'),
       '＊ 表示該垃圾清運點有回收車',
-      '台南垃圾車不一定準時，請多碰運氣',
+      '垃圾車不一定準時，請多碰運氣',
       `過濾條件：${config.MAXTIME}小時內 & ${config.MAXRANGE}公里內`,
     ]
     while (points.length / 3 > i && i < 9) {
@@ -124,14 +124,14 @@ module.exports = {
   msgMeun() {
     return {
       'type': 'template',
-      'altText': '想找台南垃圾車？',
+      'altText': '想找垃圾車？',
       'template': {
         'type': 'buttons',
         'actions': [{
           'type': 'location',
           'label': '開始查詢',
         }],
-        'title': '想找台南垃圾車？',
+        'title': '想找垃圾車？',
         'text': `使用此功能需要取得您gps定位`,
       },
     }
