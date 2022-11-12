@@ -1,5 +1,5 @@
 
-const { Blob } = require('buffer')
+const hash = require('object-hash')
 const taipeiCrawler = require('./unit/taipei')
 const newtaipeiCrawler = require('./unit/newtaipei')
 const tainanCrawler = require('./unit/tainan')
@@ -17,6 +17,9 @@ module.exports = async (context) => {
     ...tainanData,
     ...kaohsiungData,
   ]
+  for (const one of data) {
+    one.pid = hash(one)
+  }
   context.bindings.openDataOutputBlob = JSON.stringify(data)
   context.res = {
     body: 'ok',

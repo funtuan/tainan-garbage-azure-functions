@@ -12,7 +12,7 @@ function parseTimeText(text) {
 
 module.exports = async () => {
   console.log('taipei running...')
-  const json = await downloadCSV('https://data.taipei/api/getDatasetInfo/downloadResource?id=6bb3304b-4f46-4bb0-8cd1-60c66dcd1cae&rid=60524c47-412c-41b4-ac8f-79d29a9deca7', {
+  const json = await downloadCSV('	https://data.taipei/api/dataset/6bb3304b-4f46-4bb0-8cd1-60c66dcd1cae/resource/a6e90031-7ec4-4089-afb5-361a4efe7202/download', {
     format: 'big5',
   })
   if (json.length === 0) {

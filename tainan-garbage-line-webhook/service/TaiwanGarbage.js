@@ -13,7 +13,6 @@ class TaiwanGarbage {
     this.maxDistance = maxDistance
     this.maxLatLon = maxDistance / 100000
     this.alldata = []
-    this.weekdata = [[], [], [], [], [], [], []]
     this.MINM = MINM
     this.MAXTIME = MAXTIME
   }
@@ -26,9 +25,6 @@ class TaiwanGarbage {
       }
     }) */
     this.alldata = data
-    for (let day = 0; day < 7; day++) {
-      this.weekdata[day] = data.filter((item) => item.garbageDay.includes(day))
-    }
   }
 
   distanceCalc(lat1, lat2, lon1, lon2) {
@@ -51,9 +47,10 @@ class TaiwanGarbage {
   }) {
     const day = date.getDay()
     const time = date.getHours() * 60 + date.getMinutes()
-    const points = this.weekdata[day]
+    const points = this.alldata
         // 移除時間已過的點 & 距離過遠的點
         .filter((item) =>
+          item.garbageDay.includes(day) &&
           (item.startTime > time + 1) &&
           (item.startTime < time + this.MAXTIME) &&
           (item.lat < (lat + this.maxLatLon)) &&
