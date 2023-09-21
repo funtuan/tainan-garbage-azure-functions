@@ -12,7 +12,7 @@ function parseTimeText(text) {
 
 module.exports = async () => {
   console.log('taipei running...')
-  const json = await downloadCSV('	https://data.taipei/api/dataset/6bb3304b-4f46-4bb0-8cd1-60c66dcd1cae/resource/a6e90031-7ec4-4089-afb5-361a4efe7202/download', {
+  const json = await downloadCSV('https://data.taipei/api/dataset/6bb3304b-4f46-4bb0-8cd1-60c66dcd1cae/resource/a6e90031-7ec4-4089-afb5-361a4efe7202/download', {
     format: 'big5',
   })
   if (json.length === 0) {
@@ -24,9 +24,8 @@ module.exports = async () => {
       address: one['地點'],
       startTime: parseTimeText(one['抵達時間']),
       endTime: parseTimeText(one['離開時間']),
-      // 台北經度緯度數據顛倒
-      lat: Number(one['經度']),
-      lon: Number(one['緯度']),
+      lat: Number(one['緯度']),
+      lon: Number(one['經度']),
       garbageDay: taipeiGeneralGarbageDay,
       recycleDay: taipeiRecycleGarbageDay,
     })
